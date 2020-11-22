@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: All things angular
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@[version] ## replace by latest version without it you will see Expected format {org}/{repo}[/path]@ref. Actual 'AhsanAyaz/angular-deploy-gh-pages-actions',Input string was not in a correct format.
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.1
         with:
           angular_project_dir: kijisky.github.io
           github_access_token: ${{ secrets.ACCESSTOKEN }} # see the Configuration section for how you can create secrets
