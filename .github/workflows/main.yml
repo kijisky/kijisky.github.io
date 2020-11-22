@@ -20,20 +20,23 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    
-#       - name: Setup Node.js environment
-#         uses: actions/setup-node@v2.1.2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-#       - name: install npm packages
-#         run: npm install
-      - name: Echo  
-        run: echo Hello, world!
+      - name: All things angular
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@[version] ## replace by latest version without it you will see Expected format {org}/{repo}[/path]@ref. Actual 'AhsanAyaz/angular-deploy-gh-pages-actions',Input string was not in a correct format.
+        with:
+          angular_project_dir: kijisky.github.io
+          github_access_token: ${{ secrets.ACCESS_TOKEN }} # see the Configuration section for how you can create secrets
+          build_configuration: prod # The build environment for the app. please look configurations in your angular.json
+          base_href: /   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
+          deploy_branch: gh-pages # The branch the action should deploy to.
+          angular_dist_build_folder: dist/kijisky.github.io # 
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: End
+        run: echo its ok
